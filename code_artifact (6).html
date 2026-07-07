@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ภูริทัต อรัญบุญ | Personal Portfolio</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            prompt: ['Prompt', 'sans-serif'],
+            kanit: ['Kanit', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Prompt & Kanit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons for Beautiful Design -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Custom Smooth Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4c1d95;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6d28d9;
+    }
+    
+    .glass-nav {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    
+    .light .glass-nav {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-['Prompt'] transition-colors duration-300 light:bg-slate-50 light:text-slate-800">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-800/50 light:border-slate-200/50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#hero" class="text-xl font-bold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 font-['Kanit']">
+            PHURITHAT.A
+          </a>
+        </div>
+        
+        <!-- Desktop Nav Items -->
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a href="#hero" class="text-slate-300 hover:text-white transition-colors duration-200 py-2">หน้าแรก</a>
+          <a href="#about" class="text-slate-300 hover:text-white transition-colors duration-200 py-2">ประวัติส่วนตัว</a>
+          <a href="#education" class="text-slate-300 hover:text-white transition-colors duration-200 py-2">การศึกษา</a>
+          <a href="#skills" class="text-slate-300 hover:text-white transition-colors duration-200 py-2">ทักษะ</a>
+          <a href="#contact" class="text-slate-300 hover:text-white transition-colors duration-200 py-2">ติดต่อฉัน</a>
+        </div>
+
+        <!-- Light/Dark Mode & Mobile Toggle -->
+        <div class="flex items-center space-x-4">
+          <!-- Dark Mode Toggle Button -->
+          <button id="themeToggle" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-yellow-400 hover:bg-slate-800 transition-all duration-300 focus:outline-none" aria-label="Toggle Theme">
+            <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
+          </button>
+          
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button id="mobileMenuBtn" class="text-slate-400 hover:text-white p-2 focus:outline-none">
+              <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
+      <a href="#hero" class="block text-slate-300 hover:text-white hover:bg-slate-900/50 px-3 py-2 rounded-md text-base font-medium">หน้าแรก</a>
+      <a href="#about" class="block text-slate-300 hover:text-white hover:bg-slate-900/50 px-3 py-2 rounded-md text-base font-medium">ประวัติส่วนตัว</a>
+      <a href="#education" class="block text-slate-300 hover:text-white hover:bg-slate-900/50 px-3 py-2 rounded-md text-base font-medium">การศึกษา</a>
+      <a href="#skills" class="block text-slate-300 hover:text-white hover:bg-slate-900/50 px-3 py-2 rounded-md text-base font-medium">ทักษะ</a>
+      <a href="#contact" class="block text-slate-300 hover:text-white hover:bg-slate-900/50 px-3 py-2 rounded-md text-base font-medium">ติดต่อฉัน</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-950/40 via-slate-950 to-slate-950">
+    <!-- Animated background gradients -->
+    <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-violet-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10 w-full">
+      <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+        
+        <!-- Text Details -->
+        <div class="flex-1 text-center md:text-left space-y-6">
+          <div class="inline-flex items-center space-x-2 bg-violet-500/10 border border-violet-500/20 px-3 py-1.5 rounded-full text-violet-400 text-sm font-medium animate-pulse">
+            <span class="w-2 h-2 rounded-full bg-violet-500"></span>
+            <span>ยินดีต้อนรับสู่พอร์ตโฟลิโออย่างเป็นทางการ</span>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-['Kanit'] tracking-tight">
+            สวัสดีครับ ผมชื่อ <br>
+            <span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
+              ภูริทัต อรัญบุญ
+            </span>
+          </h1>
+          
+          <p class="text-lg text-slate-400 max-w-lg leading-relaxed">
+            นักเรียนระดับมัธยมศึกษาตอนปลายผู้มีความมุ่งมั่น มีใจรักในการพัฒนาเทคโนโลยี การเขียนโค้ด และการสรรค์สร้างนวัตกรรมใหม่ๆ เพื่อเปลี่ยนแปลงโลกอนาคต
+          </p>
+
+          <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
+            <a href="#about" class="px-6 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium rounded-xl shadow-lg shadow-violet-500/20 transition-all duration-300 hover:-translate-y-1">
+              ทำความรู้จักฉันเพิ่มเติม <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <a href="#contact" class="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-xl border border-slate-800 transition-all duration-300 hover:-translate-y-1">
+              ติดต่อฉัน
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile Picture Container -->
+        <div class="flex-1 flex justify-center">
+          <div class="relative group">
+            <!-- Background Glow -->
+            <div class="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-3xl blur-2xl opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+            
+            <!-- Picture Box -->
+            <div class="relative w-72 h-96 sm:w-80 sm:h-[400px] bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden p-3 flex flex-col justify-between">
+              <!-- Profile Image rendering from local source with web-fallback -->
+              <div class="w-full h-[85%] rounded-2xl overflow-hidden bg-slate-800 relative">
+                <img 
+                  id="profileImg" 
+                  src="IMG20250609092439.jpg" 
+                  alt="ภูริทัต อรัญบุญ" 
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.src='https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600'"
+                >
+                <!-- Badge Overlays -->
+                <span class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-slate-700/50">
+                  <i class="fa-solid fa-school text-violet-400 mr-1.5"></i> ภ.พ.ก
+                </span>
+              </div>
+              <div class="text-center pb-1">
+                <p class="font-semibold text-slate-200 font-['Kanit']">นายภูริทัต อรัญบุญ</p>
+                <p class="text-xs text-violet-400">ผู้รักการศึกษาและเรียนรู้พัฒนา</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-24 border-t border-slate-900 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl font-bold font-['Kanit'] text-white">เกี่ยวกับตัวฉัน</h2>
+        <div class="h-1 w-12 bg-violet-500 mx-auto rounded-full"></div>
+        <p class="text-slate-400 text-sm">ข้อมูลและประวัติเบื้องต้นของผม</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Text/Details Card -->
+        <div class="space-y-6">
+          <h3 class="text-2xl font-bold font-['Kanit'] text-slate-100 flex items-center">
+            <i class="fa-solid fa-user-tag text-violet-500 mr-3"></i> แนะนำตัวอย่างเป็นทางการ
+          </h3>
+          <p class="text-slate-400 leading-relaxed">
+            สวัสดีครับ ผมชื่อ **นายภูริทัต อรัญบุญ** เกิดและเติบโตมาพร้อมกับความตื่นตัวในยุคดิจิทัล ปัจจุบันผมมุ่งมั่นที่จะพัฒนาตนเองในด้านเทคโนโลยีและการศึกษา เพื่อปูทางสู่ความสำเร็จในอนาคต ผมเป็นคนชอบเรียนรู้สิ่งใหม่ๆ มีมนุษยสัมพันธ์ดี และพร้อมที่จะรับมือกับความท้าทายต่าง ๆ เสมอ
+          </p>
+
+          <!-- Bio Grid details -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-2xl flex items-start space-x-3">
+              <i class="fa-solid fa-cake-candles text-violet-400 text-xl mt-1"></i>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wide">วันเกิด</p>
+                <p class="text-sm font-semibold text-slate-200">5 สิงหาคม พ.ศ. 2550</p>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-2xl flex items-start space-x-3">
+              <i class="fa-solid fa-hourglass-half text-violet-400 text-xl mt-1"></i>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wide">อายุปัจจุบัน</p>
+                <p id="calculatedAge" class="text-sm font-semibold text-slate-200">กำลังประมวลผล...</p>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-2xl flex items-start space-x-3">
+              <i class="fa-solid fa-location-dot text-violet-400 text-xl mt-1"></i>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wide">สถาบัน</p>
+                <p class="text-sm font-semibold text-slate-200">โรงเรียนภูเก็ตวิทยาลัย (ภ.พ.ก)</p>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-2xl flex items-start space-x-3">
+              <i class="fa-solid fa-heart text-violet-400 text-xl mt-1"></i>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wide">ความสนใจพิเศษ</p>
+                <p class="text-sm font-semibold text-slate-200">การเขียนโค้ด, พัฒนาเว็บ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Fun Facts Widget -->
+        <div class="bg-gradient-to-br from-slate-900 to-violet-950/40 p-8 rounded-3xl border border-slate-800 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-3 bg-violet-600/10 text-violet-400 rounded-bl-2xl">
+            <i class="fa-solid fa-lightbulb text-xl animate-bounce"></i>
+          </div>
+          
+          <h4 class="text-xl font-bold font-['Kanit'] text-slate-100 mb-6">ปรัชญา & เป้าหมายชีวิต</h4>
+          
+          <div class="space-y-6">
+            <blockquote class="border-l-4 border-violet-500 pl-4 py-2 italic text-slate-300">
+              "ความเพียรพยายามไม่ได้หมายความว่าจะประสบความสำเร็จในทันที แต่คือการสะสมความพร้อมเพื่อคว้าโอกาสในวันข้างหน้า"
+            </blockquote>
+            
+            <hr class="border-slate-800">
+            
+            <div class="space-y-3">
+              <p class="text-sm font-semibold text-violet-400">เป้าหมายในอีก 3 ปีข้างหน้า:</p>
+              <ul class="space-y-2 text-sm text-slate-400">
+                <li class="flex items-center">
+                  <i class="fa-regular fa-circle-check text-emerald-400 mr-2"></i> ศึกษาต่อในระดับมหาวิทยาลัยชั้นนำในสาขาคอมพิวเตอร์/เทคโนโลยี
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-regular fa-circle-check text-emerald-400 mr-2"></i> พัฒนาโครงงานหรือแอปพลิเคชันที่สร้างสรรค์เพื่อแก้ปัญหาจริง
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-regular fa-circle-check text-emerald-400 mr-2"></i> พัฒนาทักษะด้านโปรแกรมมิ่ง (Full Stack Development)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Timeline Section -->
+  <section id="education" class="py-24 border-t border-slate-900 bg-slate-900/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl font-bold font-['Kanit'] text-white">ประวัติการศึกษา</h2>
+        <div class="h-1 w-12 bg-violet-500 mx-auto rounded-full"></div>
+        <p class="text-slate-400 text-sm">เส้นทางการเรียนรู้อันมีคุณค่า</p>
+      </div>
+
+      <!-- Timeline Layout -->
+      <div class="relative max-w-3xl mx-auto">
+        <!-- Middle Line -->
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-800"></div>
+
+        <!-- Node 1 -->
+        <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center mb-12">
+          <!-- Dot Indicator -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-violet-500 border-4 border-slate-950 rounded-full -translate-x-1.5 z-10"></div>
+          
+          <!-- Content Box Left -->
+          <div class="w-full md:w-[45%] pl-10 md:pl-0 md:text-right group">
+            <div class="p-6 bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-violet-500/50 transition-all duration-300">
+              <span class="inline-block px-3 py-1 bg-violet-500/10 text-violet-400 text-xs font-semibold rounded-full mb-3">ปัจจุบัน</span>
+              <h4 class="text-lg font-bold font-['Kanit'] text-white group-hover:text-violet-400 transition-colors">มัธยมศึกษาตอนปลาย</h4>
+              <p class="text-sm text-slate-300 mt-1">โรงเรียนภูเก็ตวิทยาลัย (ภ.พ.ก.)</p>
+              <p class="text-xs text-slate-500 mt-2">เน้นการศึกษาด้านวิทยาศาสตร์ เทคโนโลยี และความสนใจส่วนตัวทางด้านวิทยาการคำนวณ</p>
+            </div>
+          </div>
+          <div class="hidden md:block w-[45%]"></div>
+        </div>
+
+        <!-- Node 2 -->
+        <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center mb-12">
+          <!-- Dot Indicator -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-indigo-500 border-4 border-slate-950 rounded-full -translate-x-1.5 z-10"></div>
+          
+          <div class="hidden md:block w-[45%]"></div>
+          <!-- Content Box Right -->
+          <div class="w-full md:w-[45%] pl-10 group">
+            <div class="p-6 bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-indigo-500/50 transition-all duration-300">
+              <span class="inline-block px-3 py-1 bg-indigo-500/10 text-indigo-400 text-xs font-semibold rounded-full mb-3">ศิษย์เก่ามัธยมต้น</span>
+              <h4 class="text-lg font-bold font-['Kanit'] text-white group-hover:text-indigo-400 transition-colors">มัธยมศึกษาตอนต้น</h4>
+              <p class="text-sm text-slate-300 mt-1">โรงเรียนภูเก็ตวิทยาลัย</p>
+              <p class="text-xs text-slate-500 mt-2">สร้างพื้นฐานความรู้รอบตัว ทักษะทางด้านภาษา และการคิดคำนวณอย่างเป็นระบบ</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Node 3 -->
+        <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+          <!-- Dot Indicator -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-slate-700 border-4 border-slate-950 rounded-full -translate-x-1.5 z-10"></div>
+          
+          <!-- Content Box Left -->
+          <div class="w-full md:w-[45%] pl-10 md:pl-0 md:text-right group">
+            <div class="p-6 bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-slate-700 transition-all duration-300">
+              <span class="inline-block px-3 py-1 bg-slate-800 text-slate-400 text-xs font-semibold rounded-full mb-3">ประถมศึกษา</span>
+              <h4 class="text-lg font-bold font-['Kanit'] text-white group-hover:text-slate-400 transition-colors">ประถมศึกษาตอนปลาย</h4>
+              <p class="text-sm text-slate-300 mt-1">โรงเรียนประถมชั้นนำในจังหวัด</p>
+              <p class="text-xs text-slate-500 mt-2">เริ่มต้นสนใจเรื่องไอที ค้นหาความถนัด และกิจกรรมพัฒนาทักษะชีวิตเบื้องต้น</p>
+            </div>
+          </div>
+          <div class="hidden md:block w-[45%]"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-24 border-t border-slate-900 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl font-bold font-['Kanit'] text-white">ทักษะและความสามารถ</h2>
+        <div class="h-1 w-12 bg-violet-500 mx-auto rounded-full"></div>
+        <p class="text-slate-400 text-sm">เครื่องมือและองค์ความรู้ที่มุ่งมั่นเรียนรู้และฝึกฝน</p>
+      </div>
+
+      <!-- Skills Categories Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Skill Card 1: Programming -->
+        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl hover:bg-slate-900 transition-colors duration-300">
+          <div class="w-12 h-12 bg-violet-500/10 text-violet-400 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa-solid fa-code text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold font-['Kanit'] text-slate-200 mb-4">คอมพิวเตอร์ & โปรแกรมมิ่ง</h3>
+          
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>HTML & CSS</span>
+                <span>85%</span>
+              </div>
+              <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-violet-500 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>JavaScript</span>
+                <span>70%</span>
+              </div>
+              <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-violet-500 rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>Python</span>
+                <span>65%</span>
+              </div>
+              <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-violet-500 rounded-full" style="width: 65%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill Card 2: Soft Skills -->
+        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl hover:bg-slate-900 transition-colors duration-300">
+          <div class="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa-solid fa-people-carry-box text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold font-['Kanit'] text-slate-200 mb-4">ทักษะการทำงานร่วมกัน</h3>
+          
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>การทำงานเป็นทีม (Teamwork)</span>
+                <span>90%</span>
+              </div>
+              <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-indigo-500 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>การเรียนรู้สิ่งใหม่ (Fast Learner)</span>
+                <span>95%</span>
+              </div>
+              <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-indigo-500 rounded-full" style="width: 95%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>การแก้ปัญหา (Problem Solving)</span>
+                <span>80%</span>
+              </div>
+              <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-indigo-500 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill Card 3: Other Tools -->
+        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl hover:bg-slate-900 transition-colors duration-300">
+          <div class="w-12 h-12 bg-fuchsia-500/10 text-fuchsia-400 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa-solid fa-screwdriver-wrench text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold font-['Kanit'] text-slate-200 mb-4">ซอฟต์แวร์และเครื่องมือ</h3>
+          
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>Figma (Web/UI Design)</span>
+                <span>75%</span>
+              </div>
+              <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-fuchsia-500 rounded-full" style="width: 75%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>Git & GitHub (Version Control)</span>
+                <span>60%</span>
+              </div>
+              <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-fuchsia-500 rounded-full" style="width: 60%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>Microsoft Office & Google Workspace</span>
+                <span>90%</span>
+              </div>
+              <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-fuchsia-500 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery / Projects Section Placeholder -->
+  <section id="projects" class="py-24 border-t border-slate-900 bg-slate-900/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl font-bold font-['Kanit'] text-white">กิจกรรมและโปรเจกต์</h2>
+        <div class="h-1 w-12 bg-violet-500 mx-auto rounded-full"></div>
+        <p class="text-slate-400 text-sm">การทำงานและการเข้าร่วมกิจกรรมสร้างสรรค์</p>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Project 1 -->
+        <div class="group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-violet-500/50 transition duration-300">
+          <div class="h-48 bg-slate-800 overflow-hidden relative">
+            <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/10 transition-colors z-10"></div>
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=500" alt="โครงงานวิทยาการคำนวณ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6 space-y-3">
+            <span class="text-xs font-semibold text-violet-400">กลุ่มการเรียนคอมพิวเตอร์</span>
+            <h4 class="text-lg font-bold font-['Kanit'] text-slate-100 group-hover:text-violet-400 transition-colors">โครงงานเขียนโปรแกรมมิ่งเบื้องต้น</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">พัฒนาและทดลองเขียนแอปพลิเคชันเพื่อช่วยวิเคราะห์ข้อมูลของโรงเรียนอย่างง่ายและมีประสิทธิภาพ</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-violet-500/50 transition duration-300">
+          <div class="h-48 bg-slate-800 overflow-hidden relative">
+            <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/10 transition-colors z-10"></div>
+            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=500" alt="กิจกรรมโรงเรียนภูเก็ตวิทยาลัย" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6 space-y-3">
+            <span class="text-xs font-semibold text-indigo-400">กิจกรรมโรงเรียน</span>
+            <h4 class="text-lg font-bold font-['Kanit'] text-slate-100 group-hover:text-indigo-400 transition-colors">กิจกรรมพัฒนาจิตอาสา & ผู้นำ</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">ร่วมเป็นทีมงานผู้จัดกิจกรรมภายในของสถาบันภูเก็ตวิทยาลัย ส่งเสริมการสร้างมนุษยสัมพันธ์และการแก้ปัญหาร่วมกัน</p>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-violet-500/50 transition duration-300">
+          <div class="h-48 bg-slate-800 overflow-hidden relative">
+            <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/10 transition-colors z-10"></div>
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=500" alt="สัมมนาและการศึกษาภายนอก" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6 space-y-3">
+            <span class="text-xs font-semibold text-fuchsia-400">การศึกษาดูงาน</span>
+            <h4 class="text-lg font-bold font-['Kanit'] text-slate-100 group-hover:text-fuchsia-400 transition-colors">อบรมพัฒนาความรู้ไอทียุคใหม่</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">การเข้าร่วมฟังสัมมนาทางวิชาการและการอบรมเชิงปฏิบัติการทางวิทยาศาสตร์คอมพิวเตอร์ เพื่ออัปเดตองค์ความรู้</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 border-t border-slate-900 bg-slate-950 relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-violet-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl font-bold font-['Kanit'] text-white">ช่องทางการติดต่อ</h2>
+        <div class="h-1 w-12 bg-violet-500 mx-auto rounded-full"></div>
+        <p class="text-slate-400 text-sm">สอบถามข้อมูลเพิ่มเติม ยินดีตอบกลับความต้องการของคุณครับ</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+        
+        <!-- Info Info -->
+        <div class="md:col-span-2 space-y-6">
+          <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl flex items-center space-x-4">
+            <div class="w-10 h-10 bg-violet-500/10 text-violet-400 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-envelope text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500">อีเมลทางการ</p>
+              <p class="text-sm font-semibold text-slate-200">phurithat.ar@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl flex items-center space-x-4">
+            <div class="w-10 h-10 bg-indigo-500/10 text-indigo-400 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-location-dot text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500">ที่อยู่ / พื้นที่ศึกษา</p>
+              <p class="text-sm font-semibold text-slate-200">ภูเก็ต, ประเทศไทย</p>
+            </div>
+          </div>
+
+          <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl flex items-center space-x-4">
+            <div class="w-10 h-10 bg-fuchsia-500/10 text-fuchsia-400 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-hashtag text-lg"></i>
+            </div>
+            <div class="flex space-x-3 text-lg text-slate-300">
+              <a href="#" class="hover:text-violet-400 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#" class="hover:text-violet-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="hover:text-violet-400 transition-colors"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Box -->
+        <div class="md:col-span-3 bg-slate-900/50 border border-slate-800 rounded-3xl p-6 sm:p-8">
+          <form id="contactForm" class="space-y-4">
+            <div>
+              <label for="name" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">ชื่อผู้ติดต่อ</label>
+              <input type="text" id="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-all duration-300">
+            </div>
+            
+            <div>
+              <label for="email" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">อีเมลติดต่อกลับ</label>
+              <input type="email" id="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-all duration-300">
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">ข้อความฝากถึงผม</label>
+              <textarea id="message" rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-all duration-300 resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-semibold rounded-xl shadow-lg shadow-violet-500/15 transition-all duration-300 transform active:scale-95">
+              <i class="fa-solid fa-paper-plane mr-2 text-sm"></i> ส่งข้อความเลย
+            </button>
+            <p id="formStatus" class="hidden text-center text-sm font-semibold mt-3 text-emerald-400"></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-slate-900 bg-slate-950 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 space-y-2">
+      <p>© 2026 ภูริทัต อรัญบุญ. สงวนลิขสิทธิ์ทั้งหมด.</p>
+      <p class="text-slate-600">รังสรรค์ด้วยความใส่ใจ เพื่อสะท้อนถึงประวัติและทักษะแห่งอนาคต</p>
+    </div>
+  </footer>
+
+  <!-- Interactivity Scripts -->
+  <script>
+    // Theme Toggle Setup
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlEl = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlEl.classList.contains('dark')) {
+        htmlEl.classList.remove('dark');
+        htmlEl.classList.add('light');
+        themeIcon.className = 'fa-solid fa-sun text-lg';
+        themeToggleBtn.classList.remove('text-yellow-400');
+        themeToggleBtn.classList.add('text-orange-500');
+      } else {
+        htmlEl.classList.remove('light');
+        htmlEl.classList.add('dark');
+        themeIcon.className = 'fa-solid fa-moon text-lg';
+        themeToggleBtn.classList.remove('text-orange-500');
+        themeToggleBtn.classList.add('text-yellow-400');
+      }
+    });
+
+    // Mobile Menu Toggle Setup
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Age Calculator based on birthdate: August 5, 2007 (2007-08-05)
+    function calculateAge() {
+      const birthDate = new Date('2007-08-05');
+      const today = new Date();
+      
+      let years = today.getFullYear() - birthDate.getFullYear();
+      let months = today.getMonth() - birthDate.getMonth();
+      let days = today.getDate() - birthDate.getDate();
+      
+      if (months < 0 || (months === 0 && days < 0)) {
+        years--;
+        months += 12;
+      }
+      if (days < 0) {
+        const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, birthDate.getDate());
+        days = Math.floor((today - lastMonth) / (1000 * 60 * 60 * 24));
+      }
+      
+      const calculatedAgeEl = document.getElementById('calculatedAge');
+      if (calculatedAgeEl) {
+        calculatedAgeEl.textContent = `${years} ปี ${months} เดือน`;
+      }
+    }
+
+    // Call Age Calculation
+    calculateAge();
+
+    // Mock Form submission logic (no alerts)
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      formStatus.classList.remove('hidden');
+      formStatus.textContent = "กำลังส่งข้อความ...";
+      formStatus.className = "text-center text-sm font-semibold mt-3 text-amber-400";
+      
+      setTimeout(() => {
+        formStatus.textContent = "✓ ส่งข้อความถึงคุณภูริทัตเรียบร้อยแล้ว! ขอบคุณที่กรอกข้อมูลครับ";
+        formStatus.className = "text-center text-sm font-semibold mt-3 text-emerald-400 animate-pulse";
+        contactForm.reset();
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
